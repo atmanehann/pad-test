@@ -24,6 +24,16 @@ public class Escales {
 		this.myNavire = myNavire;
 		this.prixSejour = prixSejour;
 	}
+	
+	
+
+	public Escales(String numEscale, Date debutEscale, Date finEscale, long prixSejour) {
+		super();
+		this.numEscale = numEscale;
+		this.debutEscale = debutEscale;
+		this.finEscale = finEscale;
+		this.prixSejour = prixSejour;
+	}
 
 	public String getCodeEscale() {
 		return codeEscale;

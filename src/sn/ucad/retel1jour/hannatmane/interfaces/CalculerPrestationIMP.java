@@ -1,5 +1,6 @@
 package sn.ucad.retel1jour.hannatmane.interfaces;
 
+import java.util.ArrayList;
 import java.util.List;
 import sn.ucad.retel1jour.hannatmane.be.BonPilotage;
 import sn.ucad.retel1jour.hannatmane.be.Escales;
@@ -20,16 +21,22 @@ public class CalculerPrestationIMP implements ICalculerPrestation {
     private Navire navire;
     private Escales escales;
     private BonPilotage bonPilotage;
-    private List<BonPilotage> mesBons;
+    private List<BonPilotage> mesBons = new ArrayList<>();
     
     
 	public CalculerPrestationIMP() {
+		super();
+		
+	}
+	
+	public CalculerPrestationIMP(Navire navire, Escales escales, BonPilotage bonPilotage, List<BonPilotage> mesBons) {
 		super();
 		this.navire = navire;
 		this.escales = escales;
 		this.bonPilotage = bonPilotage;
 		this.mesBons = mesBons;
 	}
+
 	@Override
 	public double calculerMontantBon(double prixTypeMouvement, double volumeNavire, double tirantEau) {
 		// TODO Auto-generated method stub
@@ -44,7 +51,7 @@ public class CalculerPrestationIMP implements ICalculerPrestation {
 	public List<BonPilotage> creerListeBons() {
 		
 		return mesBons;
-		// TODO Auto-generated method stub
+		
 		
 	}
 	public Navire getNavire() {
@@ -75,17 +82,9 @@ public class CalculerPrestationIMP implements ICalculerPrestation {
         return mesBons;
     }
     
-    public void afficherFacture() {
-        System.out.println("=== FACTURATION DES PRESTATIONS ===");
-        System.out.println("Navire: " + navire);
-        System.out.println("Escale: " + escales);
-        System.out.println("\nDétail des bons:");
-        for (BonPilotage bon : mesBons) {
-            System.out.println("- " + bon);
-        }
-        System.out.println("TOTAL: " + calculerMontantTotal() + " CFA");
+   
     }
     
    
 	
-}
+

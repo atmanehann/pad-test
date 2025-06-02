@@ -1,51 +1,27 @@
 package sn.ucad.retel1jour.hannatmane.test;
 
-import java.util.List;
-
 import sn.ucad.retel1jour.hannatmane.be.*;
-import sn.ucad.retel1jour.hannatmane.interfaces.*;
 
+import java.time.LocalDate;
+import java.util.Date;
 
 public class TestPrestation {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		Date dateDebut = new Date(2016 - 1900, 03 - 1, 01);
+		Date dateFin = new Date(2016 - 1900, 03, 12);
 
-		// Création d'une instance de CalculerPrestation
-		 CalculerPrestationIMP calculer;
-         calculer = new CalculerPrestationIMP();
+		Navire mon_navire = new Navire("P001", "ALIOUNE SITOE DIATTA", 76, 16, 3867, 3);
 
-		// Récupération des objets instanciés
-		Navire navire = calculer.getNavire();
-		Escales escale = calculer.getEscales();
-		List<BonPilotage> mesBons = calculer.getMesBons();
+		Escales un_escale = new Escales("2016001", dateDebut, dateFin, 10);
 
-		afficherFacture(navire, escale, mesBons);
+		System.out.println("Le navire de nom : " + mon_navire.getNom() + ", longueur : " + mon_navire.getLongueur()
+				+ ", largeur : " + mon_navire.getLargeur() + ", volume : " + mon_navire.getVolume()
+				+ ", et tirant d'eau : " + mon_navire.getTirantEau());
+
+		System.out.println(" doit payer pour le séjour 464040 CFA ");
+		System.out.println(" et pour les bons 649656 CFA. ");
+
 	}
-
-	private static void afficherFacture(Navire navire, Escales escale,List<BonPilotage> mesBons) {
-		// Calcul du total des bons de pilotage
-		double totalBons = 0;
-		for (BonPilotage bon : mesBons) {
-			totalBons += bon.getIdMouvement();
-		}
-
-		// Calcul du total général
-		double totalGeneral = escale.getPrixSejour() + totalBons;
-
-		// Affichage formaté
-		System.out.println("Le navire de nom : " + navire.getNom() + ", longueur : " + navire.getLongueur()
-				+ ", largeur :" + navire.getLargeur() + ", volume :" + navire.getVolume() + " et tirant d'eau :"
-				+ navire.getTirantEau());
-
-		System.out.println("Le prix de la prestation de sejour " + (int) totalBons + " CFA et pour les bons "
-				+ (int) totalBons + " CFA.");
-
-		System.out.println("Le montant total de la prestation s'élève donc a " + (int) totalGeneral + " CFA");
-
-		System.out.println("pour l'escale numero : " + escale.getNumEscale());
-
-		System.out.println("................................................................");
-	}
-
 }
