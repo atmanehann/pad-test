@@ -34,7 +34,7 @@ public class CalculerPrestationIMP implements ICalculerPrestation {
 		this.navire = navire;
 		this.escales = escales;
 		this.bonPilotage = bonPilotage;
-		this.mesBons = mesBons;
+		this.mesBons = new ArrayList<BonPilotage>();
 	}
 
 	@Override
@@ -51,6 +51,8 @@ public class CalculerPrestationIMP implements ICalculerPrestation {
 	public List<BonPilotage> creerListeBons() {
 		
 		return mesBons;
+		
+		
 		
 		
 	}

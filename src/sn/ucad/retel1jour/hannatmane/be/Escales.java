@@ -24,7 +24,15 @@ public class Escales {
 		this.myNavire = myNavire;
 		this.prixSejour = prixSejour;
 	}
+	public double calculerMontantSejour(int nombreJours, double prixSejour, double volumeNavire) {
+        return nombreJours * prixSejour * volumeNavire;
+	}
 	
+	public long calculerNombreJours() {
+        long CONST_DURATION_OF_DAY = 1000 * 60 * 60 * 24;
+        long diff = Math.abs(finEscale.getTime() - debutEscale.getTime());
+        return diff / CONST_DURATION_OF_DAY + 1;
+	}
 	
 
 	public Escales(String numEscale, Date debutEscale, Date finEscale, long prixSejour) {
@@ -83,11 +91,11 @@ public class Escales {
 		this.prixSejour = prixSejour;
 	}
 
-	 // Méthode pour calculer le nombre de jours (selon la formule donnée)
-    public long calculerNombreJours() {
-        long CONST_DURATION_OF_DAY = 1000 * 60 * 60 * 24;
-        long diff = Math.abs(finEscale.getTime() - debutEscale.getTime());
-        long numberOfDay = diff / CONST_DURATION_OF_DAY + 1;
-        return numberOfDay;
-    }
+	public double calculerPaye(Navire mon_navire, double prixParJour) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+    
+    
 }
