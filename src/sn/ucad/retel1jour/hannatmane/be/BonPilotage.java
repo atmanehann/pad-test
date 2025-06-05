@@ -12,6 +12,11 @@ public class BonPilotage {
 		super();
 	}
 
+	public BonPilotage(String posteaquai) {
+		super();
+		this.posteaquai = posteaquai;
+	}
+
 	public BonPilotage(int idMouvement, Escales monEscale, Date datedeBon, String posteaquai) {
 		super();
 		this.idMouvement = idMouvement;
